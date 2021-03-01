@@ -1,0 +1,68 @@
+<form [formGroup]="paymentForm">
+  <div class="form-group">
+    <label for="fromAccountIban">From account</label>
+    <input
+      type="text"
+      class="form-control"
+      id="fromAccountIban"
+      required
+      [maxlength]="maxIban"
+      name="fromAccountIban"
+      formControlName="fromAccountIban"
+      (input)="getPreviewIban('fromAccountIban')"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="toAccountIban">To account</label>
+    <input
+      type="text"
+      class="form-control"
+      id="toAccountIban"
+      required
+      [maxlength]="maxIban"
+      name="toAccountIban"
+      formControlName="toAccountIban"
+      (input)="getPreviewIban('toAccountIban')"
+    />
+  </div>
+
+  <div class="formInput">
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input
+        type="number"
+        class="form-control"
+        id="amount"
+        formControlName="amount"
+        name="amount"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="currency">Currency</label>
+      <select class="form-control" id="currency" required>
+        <option *ngFor="let cur of currency" [value]="cur">{{ cur }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="token">Token Authorization</label>
+    <input
+      type="text"
+      class="form-control"
+      id="token"
+      name="token"
+      formControlName="token"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="submitted">
+    Submit Payment
+  </button>
+</form>
+
+<lion-fieldset name="personalia" label="personalia">
+  <lion-input name="title" label="Title"></lion-input>
+</lion-fieldset>
