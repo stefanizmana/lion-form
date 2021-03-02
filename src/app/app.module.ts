@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {ComponentsModule} from "./component/component.module";
+import {ComponentsModule} from './component/component.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,7 @@ import {ComponentsModule} from "./component/component.module";
   exports: [
     ComponentsModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

@@ -55,14 +55,17 @@
       id="token"
       name="token"
       formControlName="token"
+      (input)="validateTokenInput('token')"
     />
+
+    <div
+      *ngIf="errorMessage"
+      class="alert alert-danger alert-danger-error"
+      [innerHTML]="errorMessage"
+    ></div>
   </div>
 
   <button type="submit" class="btn btn-success" [disabled]="submitted">
     Submit Payment
   </button>
 </form>
-
-<lion-fieldset name="personalia" label="personalia">
-  <lion-input name="title" label="Title"></lion-input>
-</lion-fieldset>
